@@ -1,0 +1,9 @@
+voice-mood-detector/
+│
+├── data/              # For RAVDESS audio files
+├── scripts/           # Python files (e.g., feature_extraction.py)
+├── notebooks/         # Jupyter or Colab notebooks
+├── models/            # Trained models (optional)
+├── README.md
+├── requirements.txt   # List of libraries
+└── .gitignore         # To avoid uploading unnecessary files
