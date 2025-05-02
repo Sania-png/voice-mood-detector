@@ -1,0 +1,7 @@
+import librosa
+
+file_path = "data/Actor_01/03-01-01-01-01-01-01.wav"
+y, sr = librosa.load(file_path, sr=None)
+
+print("Duration (sec):", librosa.get_duration(y=y, sr=sr))
+print("Sample rate:", sr)
