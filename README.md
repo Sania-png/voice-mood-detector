@@ -5,8 +5,8 @@ Voice-based mood detection using Python
 This project detects the **mood or emotion from a voice recording** using audio features and machine learning. It is part of our foundation year final project at university, related to our Data Science degree.
 
 ## 👥 Team
-- [Your Name]
-- [Partner's Name]
+- Sania Khan
+- Jorge Malambo
 
 ---
 
