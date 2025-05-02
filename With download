@@ -1,0 +1,47 @@
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# --- Step 1: Build a safe absolute path to features.csv ---
+script_dir = os.path.dirname(os.path.abspath(__file__))
+features_path = os.path.join(script_dir, "..", "data", "features.csv")
+output_image_path = os.path.join(script_dir, "..", "data", "emotion_distribution.png")
+
+# --- Step 2: Load the CSV file ---
+try:
+    df = pd.read_csv(features_path)
+    print("✅ Loaded features.csv successfully from:", features_path)
+except FileNotFoundError:
+    print("❌ Could not find features.csv at:", features_path)
+    exit(1)
+
+# --- Step 3: Count emotions and compute percentages ---
+emotion_counts = df['emotion'].value_counts()
+total = emotion_counts.sum()
+emotions = emotion_counts.index
+counts = emotion_counts.values
+percentages = (counts / total) * 100
+
+# --- Step 4: Plot ---
+plt.figure(figsize=(12, 7))
+bars = plt.bar(emotions, counts, color='skyblue', edgecolor='black')
+
+# Add count + percent labels
+for bar, count, pct in zip(bars, counts, percentages):
+    label = f"{count} ({pct:.1f}%)"
+    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 2,
+             label, ha='center', va='bottom', fontsize=10)
+
+plt.title("🎭 Emotion Distribution in Audio Samples", fontsize=16)
+plt.xlabel("Emotion Category", fontsize=12)
+plt.ylabel("Number of Samples", fontsize=12)
+plt.xticks(rotation=45, fontsize=10)
+plt.yticks(fontsize=10)
+plt.grid(axis='y', linestyle='--', alpha=0.6)
+plt.tight_layout()
+
+# --- Step 5: Save and show ---
+plt.savefig(output_image_path)
+print(f"📸 Saved chart to {output_image_path}")
+
+plt.show()
