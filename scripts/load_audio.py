@@ -1,6 +1,6 @@
 import librosa
 
-test_file = r"C:\Users\Sania\Documents\GitHub\voice-mood-detector\data\archive\Actor_01\03-01-01-01-01-01-01.wav"
+test_file = r"C:\GitHub\voice-mood-detector\data\archive\Actor_01\03-01-01-01-01-01-01.wav"
 
 try:
     y, sr = librosa.load(test_file, sr=None)

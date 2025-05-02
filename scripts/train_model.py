@@ -5,7 +5,7 @@ from sklearn.metrics import classification_report, accuracy_score
 import joblib
 
 # 1. Load feature data
-df = pd.read_csv(r"C:\Users\Sania\Documents\GitHub\voice-mood-detector\data\features.csv")
+df = pd.read_csv(r"C:\GitHub\voice-mood-detector\data\archive\features.csv")
 
 # 2. Prepare X (features) and y (labels)
 X = df.drop(columns=["file", "emotion"])
@@ -25,5 +25,5 @@ print(classification_report(y_test, y_pred))
 print(f"✅ Accuracy: {accuracy_score(y_test, y_pred) * 100:.2f}%")
 
 # 6. Save model
-joblib.dump(model, r"C:\Users\Sania\Documents\GitHub\voice-mood-detector\models\mood_classifier.pkl")
+joblib.dump(model, r"C:\GitHub\voice-mood-detector\models\mood_classifier.pkl")
 print("💾 Model saved to models/mood_classifier.pkl")
