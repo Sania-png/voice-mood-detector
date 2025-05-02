@@ -1,0 +1,28 @@
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# --- Step 1: Build a safe absolute path to features.csv ---
+script_dir = os.path.dirname(os.path.abspath(__file__))
+features_path = os.path.join(script_dir, "..", "data", "features.csv")
+
+# --- Step 2: Load the CSV file ---
+try:
+    df = pd.read_csv(features_path)
+    print("✅ Loaded features.csv successfully from:", features_path)
+except FileNotFoundError:
+    print("❌ Could not find features.csv at:", features_path)
+    exit(1)
+
+# --- Step 3: Plot emotion distribution ---
+plt.figure(figsize=(10, 6))
+df['emotion'].value_counts().plot(kind='bar', color='skyblue')
+plt.title("Emotion Distribution")
+plt.xlabel("Emotion")
+plt.ylabel("Number of Samples")
+plt.xticks(rotation=45)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# --- Step 4: Show plot ---
+plt.tight_layout()
+plt.show()

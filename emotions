@@ -1,0 +1,22 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Step 1: Load the features CSV
+df = pd.read_csv("data/features.csv")
+
+# Step 2: Count emotions
+emotion_counts = df["emotion"].value_counts()
+
+# Step 3: Plot
+plt.figure(figsize=(10, 6))
+emotion_counts.plot(kind="bar", color="skyblue", edgecolor="black")
+
+# Step 4: Customize
+plt.title("Emotion Distribution in Dataset")
+plt.xlabel("Emotion")
+plt.ylabel("Number of Samples")
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Step 5: Show plot
+plt.show()
