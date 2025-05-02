@@ -21,10 +21,10 @@ emotion_colors = {
     "surprised": "green",
     "calm": "gray",
     "neutral": "gray",
-    "sad": "steelblue",
-    "angry": "steelblue",
-    "fearful": "steelblue",
-    "disgust": "steelblue"
+    "sad": "red",
+    "angry": "red",
+    "fearful": "red",
+    "disgust": "red"
 }
 
 # --- Count & sort ---
