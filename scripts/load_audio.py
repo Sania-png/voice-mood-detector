@@ -1,10 +1,21 @@
 import librosa
 
-test_file = r"C:\Users\Sania\Documents\GitHub\voice-mood-detector\data\archive\Actor_01\03-01-01-01-01-01-01.wav"
+def load_audio(file_path):
+    """
+    Loads a WAV audio file using librosa.
 
-try:
-    y, sr = librosa.load(test_file, sr=None)
-    print("✅ Loaded test file")
-    print("Duration (sec):", librosa.get_duration(y=y, sr=sr))
-except Exception as e:
-    print(f"⚠️ Could not load test file: {e}")
+    Args:
+        file_path (str): Path to the WAV file.
+
+    Returns:
+        y (np.ndarray): Audio time series
+        sr (int): Sampling rate
+    """
+    try:
+        y, sr = librosa.load(file_path, sr=None)
+        print("✅ Loaded test file")
+        print("Duration (sec):", librosa.get_duration(y=y, sr=sr))
+        return y, sr
+    except Exception as e:
+        print(f"⚠️ Could not load file: {e}")
+        raise e  # Re-raise the error so calling code can handle it

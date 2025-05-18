@@ -4,10 +4,12 @@ import joblib
 import tempfile
 import sys
 import os
+
+# Ensure the parent directory is in the path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from scripts.load_audio import load_audio
-from scripts.extract_features import extract_features
+from load_audio import load_audio
+from extract_features import extract_features
 
 # Load trained model
 model = joblib.load(r"C:\Users\Sania\Documents\GitHub\voice-mood-detector\models\mood_classifier.pkl")
@@ -34,8 +36,9 @@ if uploaded_file:
 
         # Predict
         prediction = model.predict(features)[0]
-        st.success(f"🧠 Detected Mood: **{prediction}**")
+        st.success(f"💬 Detected Mood: **{prediction}**")
 
     except Exception as e:
         st.error(f"Failed to process audio: {e}")
+
 
