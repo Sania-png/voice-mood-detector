@@ -1,0 +1,13 @@
+Emotion Distribution:
+
+emotion
+calm         192
+happy        192
+sad          192
+angry        192
+disgust      192
+fearful      192
+surprised    192
+neutral       96
+
+Dataset appears balanced.
