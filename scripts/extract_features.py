@@ -30,8 +30,8 @@ emotion_map = {
 # --- Collect features ---
 features = []
 
-base_path = r"C:\Users\Sania\Documents\GitHub\voice-mood-detector\data\archive"
-output_csv = r"C:\Users\Sania\Documents\GitHub\voice-mood-detector\data\features.csv"
+base_path = r"C:\GitHub\voice-mood-detector\data\archive"
+output_csv = r"C:\GitHub\voice-mood-detector\data\features.csv"
 wav_files = glob.glob(os.path.join(base_path, "Actor_*", "*.wav"))
 
 print(f"🎧 Found {len(wav_files)} .wav files")
