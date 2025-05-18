@@ -3,6 +3,18 @@ import glob
 import librosa
 import pandas as pd
 
+import numpy as np
+import librosa
+
+def extract_features(y, sr):
+    try:
+        mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
+        mfcc_mean = mfcc.mean(axis=1)  # shape (13,)
+        return mfcc_mean
+    except Exception as e:
+        print(f"⚠️ Error extracting features: {e}")
+        raise
+
 # --- Emotion mapping from RAVDESS ---
 emotion_map = {
     "01": "neutral",
