@@ -12,7 +12,11 @@ from load_audio import load_audio
 from extract_features import extract_features
 
 # Load trained model
-model = joblib.load(r"C:\Users\Sania\Documents\GitHub\voice-mood-detector\models\mood_classifier.pkl")
+import os
+
+model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'mood_classifier.pkl')
+model_path = os.path.abspath(model_path)
+model = joblib.load(model_path)
 
 st.title("🎤 Speech Mood Detector")
 
