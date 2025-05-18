@@ -13,11 +13,14 @@ from extract_features import extract_features
 
 # Load trained model
 import os
+import joblib
 
+# Get absolute path to the model file (safe for Streamlit Cloud)
 model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'mood_classifier.pkl')
 model_path = os.path.abspath(model_path)
-model = joblib.load(model_path)
 
+# Load the model
+model = joblib.load(model_path)
 st.title("🎤 Speech Mood Detector")
 
 # Upload WAV file
